@@ -2,35 +2,100 @@
 
 <p align="center">
 
-  <h1 align="center">Multi-view Hand Reconstruction with a Point-Embedded Transformer</h1>
+  <h2 align="center">POEM-v2: a Generalizable Multi-view Hand Mesh Recovery Model</h2>
+  <h3 align="center">📄 Multi-view Hand Reconstruction with a Point-Embedded Transformer </h3>
   <p align="center">
-    <a><strong>Lixin Yang</strong></a>
+    <a href="https://lixiny.github.io"><strong>Lixin Yang</strong></a>
     ·
-    <a><strong>Licheng Zhong</strong></a>
+    <a href="https://zlicheng.com"><strong>Licheng Zhong</strong></a>
     ·
-    <a><strong>Pengxiang Zhu</strong></a>
+    <a href="https://jubsteven.github.io"><strong>Pengxiang Zhu</strong></a>
     ·
-    <a><strong>Xinyu Zhan</strong></a>
+    <a href="https://scholar.google.com/citations?user=WurpqEMAAAAJ&hl=en"><strong>Xinyu Zhan</strong></a>
     ·
-    <a><strong>Junxiao Kong</strong></a>
+    <a href=""><strong>Junxiao Kong</strong></a>
     .
-    <a><strong>Jian Xu</strong></a>
+    <a href="https://xjhaoren.github.io"><strong>Jian Xu</strong></a>
     .
-    <a><strong>Cewu Lu</strong></a>
+    <a href="https://mvig.org"><strong>Cewu Lu</strong></a>
   </p>
-  <div align="center">
-    <img src="./docs/POEM-v2.png" alt="Logo" width="100%">
-  </div>
 
   <p align="center">
-    <br>
     <a href="https://arxiv.org/abs/2408.10581">
       <img src='https://img.shields.io/badge/Paper-PDF-green?style=for-the-badge&logo=adobeacrobatreader&logoWidth=20&logoColor=white&labelColor=66cc00&color=94DD15' alt='Paper PDF'>
     </a>
   </p>
 </p>
 
-POEM is a generalizable multi-view hand mesh reconstruction (HMR) model designed for practical use in real-world hand motion capture scenerios. It embeds a static basis point within the multi-view stereo space to serve as medium for fusing features across different views. To infer accurate 3D hand mesh from multi-view images, POEM introduce a point-embedded transformer decoder. By employing a combination of five large-scale multi-view datasets and sufficient data augmentation, POEM demonstrates superior generalization ability in real-world applications.
+### What‘s _POEM-v2_?  
+POEM (**PO**int-**EM**bed) v2 is a **generalizable** multi-view hand mesh recovery model designed for seamless use in real-world hand MoCap & teleoperation. 
+
+### What is _POEM-v2_'s advantage?
+**It is flexible:** Works with any number, order or arrangement of cameras, as long as:  
+  * share overlapping views, 
+  * see the hand in at least some cameras, 
+  * have calibrated extrinsics
+
+**It is robust to occlusion:** 
+It can handle occlusion and partial visibility by leveraging views where the hand remains visible.
+
+**It produces absolute hand position:**  It directly recovers hand‐surface vertices in real‐world (meter) units, referenced to the first camera’s coordinate system.. 
+
+
+**It supports both left and right hands:**: 
+Although trained on right-hand data, it can still also handle left hand 
+by a **world-mirroring process** (horizon-tally flipping all images and mirroring camera extrinsics along the first camera's Y-Z plane)
+
+
+
+###  _POEM-v2_ Use Case.
+
+Human-to-Robot Teleoperation with a few cost-effective cameras:
+(shown in Sim).  
+
+---
+
+<p>
+  <div align="center">
+    <img src="./docs/demo_both.png" alt="Logo" width="100%">
+    <br/>
+    <em> Supports reconstruction of both left and right hand.</em>
+  </div>
+</p>
+
+<div style="display: flex; width: 100%; align-items: stretch; gap: 0.5rem;">
+  <div style="flex: 58%; text-align: center;">
+    <img src="docs/demo_single.png"
+         style="width: 100%; height: auto; object-fit: contain;"
+         alt="demo">
+    <br/>
+    <em>Absolute metric output and occlusion-robust.</em>
+  </div>
+  <div style="flex: 42%; text-align: center;">
+    <img src="docs/teleop_sim.gif"
+         style="width: 100%; height: auto; object-fit: contain;"
+         alt="teleop">
+    <br/>
+    <em>Human-to-robot teleoperation in sim.</em>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <br/><br/>
 
 ## :joystick: Instructions
